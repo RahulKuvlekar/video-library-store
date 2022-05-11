@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./NavigationBar.css";
+import { menus } from "./menus";
+import { useAuthContext } from "../../Hooks/useAuthContext";
 
 const NavigationBar = () => {
+  const {
+    authState: { isAuthenticated },
+  } = useAuthContext();
   return (
     <header className="navigation-bar">
       <div className="nav-logo-title">
@@ -10,6 +15,29 @@ const NavigationBar = () => {
           V-Store
         </Link>
       </div>
+      <ul className="nav-pill nav-menu">
+        {menus &&
+          !isAuthenticated &&
+          menus.map(({ name, pathname }) => (
+            <li className="list-inline-item" key={`navigationbar-menu-${name}`}>
+              <NavLink
+                to={pathname}
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                {name}
+              </NavLink>
+            </li>
+          ))}
+        {isAuthenticated && (
+          <li>
+            <img
+              src="/Images/avatar.png"
+              className="avatar avatar-md"
+              alt="loginAvatar"
+            />
+          </li>
+        )}
+      </ul>
     </header>
   );
 };

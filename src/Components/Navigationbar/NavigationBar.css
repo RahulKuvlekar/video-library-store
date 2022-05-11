@@ -1,6 +1,7 @@
 .navigation-bar {
   grid-column: span 2;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
   color: var(--primary-color);
@@ -8,4 +9,22 @@
   box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
   position: relative;
   z-index: 1000;
+}
+.navigation-bar .nav-menu li {
+  margin: 0 0.6rem;
+}
+
+.navigation-bar .nav-menu li a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.navigation-bar .nav-menu li:hover a {
+  color: var(--primary-hover);
+}
+
+.navigation-bar .nav-menu .nav-active {
+  color: var(--primary-hover);
+  padding: 0 0 0.5rem 0;
+  border-bottom: 2px solid var(--primary-hover);
 }

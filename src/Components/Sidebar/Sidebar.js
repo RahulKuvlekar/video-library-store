@@ -1,9 +1,31 @@
 import React from "react";
 import "./Sidebar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { menus } from "./menus";
+import { FaSignOutAlt } from "react-icons/fa";
+import { useAuthContext } from "../../Hooks/useAuthContext";
+import { authFeatures } from "../../Constant/constant";
 
 const Sidebar = () => {
+  const {
+    authState: { isAuthenticated },
+    dispatchAuth,
+  } = useAuthContext();
+  const navigate = useNavigate();
+  const { CLEAR_AUTH } = authFeatures;
+
+  const LogoutService = () => {
+    dispatchAuth({
+      type: CLEAR_AUTH,
+    });
+
+    localStorage.removeItem("isAuth");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userInfo");
+
+    navigate("/", { replace: true });
+  };
+
   return (
     <nav className="sidebar">
       <ul className="nav-pill nav-menu">
@@ -21,6 +43,14 @@ const Sidebar = () => {
               </NavLink>
             </li>
           ))}
+        {isAuthenticated && (
+          <li className="list-block-item">
+            <button className="btn-logout" onClick={LogoutService}>
+              <span className="sidemenu-title">Logout</span>
+              <FaSignOutAlt />
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );
