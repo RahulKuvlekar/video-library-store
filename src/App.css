@@ -45,7 +45,8 @@ body::-webkit-scrollbar,
 .row-slider-container::-webkit-scrollbar,
 .main-section::-webkit-scrollbar,
 .navigation-bar::-webkit-scrollbar,
-.sidebar::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar,
+.signup::-webkit-scrollbar {
   display: none;
 }
 
@@ -54,7 +55,8 @@ body,
 .row-slider-container,
 .main-section,
 .navigation-bar,
-.sidebar {
+.sidebar,
+.signup {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
