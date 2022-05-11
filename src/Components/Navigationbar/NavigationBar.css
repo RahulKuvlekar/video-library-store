@@ -1,0 +1,11 @@
+.navigation-bar {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  color: var(--primary-color);
+  background-color: var(--bg--gray-800);
+  box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
+  position: relative;
+  z-index: 1000;
+}

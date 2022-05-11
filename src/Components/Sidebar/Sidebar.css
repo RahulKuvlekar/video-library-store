@@ -1,0 +1,33 @@
+.sidebar {
+  grid-column: span 1;
+  color: var(--primary-color);
+  background-color: var(--bg--gray-900);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-right: 1px solid #ff56a21b;
+}
+.nav-pill {
+  flex-flow: column;
+}
+.nav-menu .list-block-item {
+  display: block;
+}
+
+.nav-pill .link-no-style {
+  color: white;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.nav-pill .link-no-style:hover {
+  color: var(--primary-hover);
+  background-color: var(--bg--gray-800);
+}
+.nav-pill .link-no-style.nav-active {
+  color: var(--primary-hover);
+  background-color: var(--bg--gray-800);
+}
+.nav-pill .link-no-style .sidemenu-title {
+  margin-right: 0.5rem;
+}
