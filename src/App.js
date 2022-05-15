@@ -6,6 +6,8 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Mockman from "mockman-js";
 import Login from "./Pages/Authentication/Login";
 import Signup from "./Pages/Authentication/Signup";
+import Explore from "./Pages/Explore/Explore";
+import SingleVideo from "./Pages/SingleVideo/SingleVideo";
 
 function App() {
   const { pathname } = useLocation();
@@ -20,14 +22,10 @@ function App() {
       ) && <Sidebar />}
       <Routes>
         <Route path="/mockman" element={<Mockman />} />
-      </Routes>
-      <Routes>
         <Route path="/" element={<Home />} />
-      </Routes>
-      <Routes>
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/explore/:videoId" element={<SingleVideo />} />
         <Route path="/login" element={<Login />} />
-      </Routes>
-      <Routes>
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>

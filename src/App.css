@@ -46,7 +46,9 @@ body::-webkit-scrollbar,
 .main-section::-webkit-scrollbar,
 .navigation-bar::-webkit-scrollbar,
 .sidebar::-webkit-scrollbar,
-.signup::-webkit-scrollbar {
+.signup::-webkit-scrollbar,
+.explore-section::-webkit-scrollbar,
+.singleVideo-section::-webkit-scrollbar {
   display: none;
 }
 
@@ -56,7 +58,9 @@ body,
 .main-section,
 .navigation-bar,
 .sidebar,
-.signup {
+.signup,
+.explore-section,
+.singleVideo-section {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
