@@ -1,0 +1,6 @@
+.videoListing-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 360px);
+  gap: 1.5rem;
+}
