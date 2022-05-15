@@ -1,0 +1,70 @@
+.singleVideo-section {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.video-frame {
+  width: 100%;
+  height: 55vh;
+}
+
+.singleVideo-info {
+  display: flex;
+  flex-flow: column;
+}
+
+.singleVideo-details {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.singleVideo-details h4 {
+  color: rgb(177, 177, 177);
+}
+
+.singleVideo-creator-info {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+  border-top: 0.5px solid var(--grey-color-dark);
+  border-bottom: 0.5px solid var(--grey-color-dark);
+}
+
+.singleVideo-description {
+  color: white;
+  margin-left: 70px;
+}
+
+.singleVideo-buttons {
+  display: flex;
+  flex-flow: row;
+}
+
+.singleVideo-buttons button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  font-weight: 600;
+  background-color: var(--bg--gray-900);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: background-color 0.3s ease-in;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.singleVideo-buttons button svg {
+  margin-right: 0.5rem;
+}
+
+.singleVideo-buttons button:hover {
+  background-color: var(--primary-hover);
+  border: 1px solid var(--primary-hover);
+  color: white;
+}
