@@ -38,16 +38,16 @@ const Sidebar = () => {
                   isActive ? "nav-active link-no-style" : "link-no-style"
                 }
               >
-                <span className="sidemenu-title">{name}</span>
                 {icons}
+                <span className="sidemenu-title">{name}</span>
               </NavLink>
             </li>
           ))}
         {isAuthenticated && (
           <li className="list-block-item">
             <button className="btn-logout" onClick={LogoutService}>
-              <span className="sidemenu-title">Logout</span>
               <FaSignOutAlt />
+              <span className="sidemenu-title">Logout</span>
             </button>
           </li>
         )}
