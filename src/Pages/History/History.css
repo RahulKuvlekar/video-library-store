@@ -1,0 +1,10 @@
+.history-section {
+  padding: 0 1.5rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.history-section-videolisting {
+  display: flex;
+  flex-flow: column;
+  row-gap: 1.5rem;
+}
