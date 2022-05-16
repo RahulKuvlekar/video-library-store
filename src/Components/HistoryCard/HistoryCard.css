@@ -1,0 +1,52 @@
+.history-card-section {
+  display: flex;
+  flex-flow: row;
+  cursor: pointer;
+  border: 2px solid #ff56a21b;
+  position: relative;
+}
+.history-card-section:active {
+  border: 2px solid var(--primary-color);
+}
+.history-card-img {
+  width: 250px;
+}
+.history-card-info {
+  width: 100%;
+  padding: 1rem;
+}
+.history-card-title {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.history-card-deleteBtn {
+  font-size: 1.4rem;
+  color: var(--primary-hover);
+  cursor: pointer;
+  position: absolute;
+  right: 1.5rem;
+}
+.history-card-deleteBtn:hover {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+.history-card-creatorInfo {
+  display: flex;
+  flex-flow: row;
+}
+.history-card-creatorInfo h3 {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-right: 1rem;
+  color: rgb(190, 190, 190);
+}
+.history-card-creatorInfo h3 .avatar {
+  margin: 0.25rem 0.6rem 0.25rem 0rem;
+}
+.history-card-description {
+  color: rgb(190, 190, 190);
+}
