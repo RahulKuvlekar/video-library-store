@@ -17,7 +17,7 @@
 }
 a {
   text-decoration: none;
-  color: #000;
+  color: #ffffff;
 }
 ul {
   list-style: none;
@@ -28,6 +28,7 @@ hr {
 }
 body {
   overflow: hidden;
+  color: #ffffff;
   background-color: var(--bg--gray-800);
 }
 
@@ -48,7 +49,8 @@ body::-webkit-scrollbar,
 .sidebar::-webkit-scrollbar,
 .signup::-webkit-scrollbar,
 .explore-section::-webkit-scrollbar,
-.singleVideo-section::-webkit-scrollbar {
+.singleVideo-section::-webkit-scrollbar,
+.history-section::-webkit-scrollbar {
   display: none;
 }
 
@@ -60,7 +62,8 @@ body,
 .sidebar,
 .signup,
 .explore-section,
-.singleVideo-section {
+.singleVideo-section,
+.history-section {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -68,6 +71,9 @@ body,
 button,
 a {
   cursor: pointer;
+  display: inline-flex;
+  flex-flow: row;
+  align-items: center;
 }
 input[type="checkbox"],
 input[type="radio"],
@@ -76,8 +82,7 @@ input[type="range"] {
 }
 .page-title {
   width: 100%;
-  margin: 0 2rem;
-  height: 8vh;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
 }
@@ -86,6 +91,9 @@ input[type="range"] {
 }
 .page-title-start {
   justify-content: start;
+}
+.page-title-space-btw {
+  justify-content: space-between;
 }
 
 .App {

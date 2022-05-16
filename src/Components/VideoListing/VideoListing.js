@@ -8,7 +8,6 @@ const VideoListing = () => {
     videoState: { videoList, category },
   } = useVideoContext();
 
-  console.log(useVideoContext());
   const sortByCategoryVideos =
     category?.toLowerCase() === "all"
       ? videoList
@@ -16,8 +15,6 @@ const VideoListing = () => {
           (video) =>
             video?.categoryName?.toLowerCase() === category?.toLowerCase()
         );
-
-  console.log(sortByCategoryVideos);
 
   return (
     <div className="videoListing-section">
