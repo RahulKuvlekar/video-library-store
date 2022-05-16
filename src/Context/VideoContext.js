@@ -22,8 +22,6 @@ const VideoProvider = ({ children }) => {
   };
   const [videoState, dispatchVideo] = useReducer(videoReducer, initialValue);
 
-  console.log("context ", videoState);
-
   useEffect(() => {
     // Get All Videos
     (async () => {

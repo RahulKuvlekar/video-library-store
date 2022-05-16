@@ -8,6 +8,8 @@ import Login from "./Pages/Authentication/Login";
 import Signup from "./Pages/Authentication/Signup";
 import Explore from "./Pages/Explore/Explore";
 import SingleVideo from "./Pages/SingleVideo/SingleVideo";
+import History from "./Pages/History/History";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 function App() {
   const { pathname } = useLocation();
@@ -27,6 +29,14 @@ function App() {
         <Route path="/explore/:videoId" element={<SingleVideo />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
