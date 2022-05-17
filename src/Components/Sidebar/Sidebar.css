@@ -3,7 +3,7 @@
   color: var(--primary-color);
   background-color: var(--bg--gray-900);
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-right: 1px solid #ff56a21b;
 }
 .sidebar .nav-pill {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { GET_VIDEO } from "../../Constant/constant";
@@ -7,12 +7,65 @@ import moment from "moment";
 import "./SingleVideo.css";
 import Loader from "../../Components/Loader/Loader";
 import Error from "../../Components/Error/Error";
+import { useAuthContext } from "../../Hooks/useAuthContext";
+import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  addToWatchLaterList,
+  deleteFromWatchLaterList,
+} from "../../Utils/watchlater";
+import { deleteFromLikedVideos, addToLikedVideos } from "../../Utils/likes";
 
 const SingleVideo = () => {
   const [videoData, setVideoData] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { videoId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const {
+    authState: { token, isAuthenticated },
+  } = useAuthContext();
+  const {
+    videoFeaturesState: { watchLaterList, likedVideosList, isLoading },
+    dispatchVideoFeatures,
+  } = useVideoFeaturesContext();
+
+  const IsAlreadyWatch = useMemo(
+    () => watchLaterList.find((video) => video?._id === videoData?._id),
+    [watchLaterList, videoData]
+  );
+  const IsAlreadyLiked = useMemo(
+    () => likedVideosList.find((video) => video?._id === videoData?._id),
+    [likedVideosList, videoData]
+  );
+
+  const watchLaterHandler = () => {
+    if (!isAuthenticated) {
+      navigate("/login", { replace: true, state: { from: location } });
+      return;
+    }
+
+    if (IsAlreadyWatch) {
+      deleteFromWatchLaterList(dispatchVideoFeatures, token, videoData._id);
+    } else {
+      addToWatchLaterList(dispatchVideoFeatures, token, videoData);
+    }
+  };
+
+  const likeVideoHandler = () => {
+    if (!isAuthenticated) {
+      navigate("/login", { replace: true, state: { from: location } });
+      return;
+    }
+
+    if (IsAlreadyLiked) {
+      deleteFromLikedVideos(dispatchVideoFeatures, token, videoData._id);
+    } else {
+      addToLikedVideos(dispatchVideoFeatures, token, videoData);
+    }
+  };
 
   const getVideo = async () => {
     try {
@@ -65,7 +118,11 @@ const SingleVideo = () => {
                           </span>
                         </h4>
                         <div className="singleVideo-buttons">
-                          <button>
+                          <button
+                            disabled={isLoading}
+                            onClick={likeVideoHandler}
+                            className={`${IsAlreadyLiked ? "isActive" : ""}`}
+                          >
                             <FaThumbsUp />
                             Like
                           </button>
@@ -73,7 +130,11 @@ const SingleVideo = () => {
                             <FaFolderPlus />
                             Playlist
                           </button>
-                          <button>
+                          <button
+                            disabled={isLoading}
+                            onClick={watchLaterHandler}
+                            className={`${IsAlreadyWatch ? "isActive" : ""}`}
+                          >
                             <FaClock />
                             Watch Later
                           </button>

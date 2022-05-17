@@ -50,7 +50,8 @@ body::-webkit-scrollbar,
 .signup::-webkit-scrollbar,
 .explore-section::-webkit-scrollbar,
 .singleVideo-section::-webkit-scrollbar,
-.history-section::-webkit-scrollbar {
+.history-section::-webkit-scrollbar,
+.mainpage-section::-webkit-scrollbar {
   display: none;
 }
 
@@ -63,7 +64,8 @@ body,
 .signup,
 .explore-section,
 .singleVideo-section,
-.history-section {
+.history-section,
+.mainpage-section {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -106,5 +108,10 @@ input[type="range"] {
   background-color: var(--bg--gray-800);
   max-height: 90vh;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+.mainpage-section {
+  padding: 1.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

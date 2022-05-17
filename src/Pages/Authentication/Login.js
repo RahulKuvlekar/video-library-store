@@ -21,6 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const FROM = location?.state?.from?.pathname || "/";
+
   const inputHandler = (event) => {
     const { name, value } = event.target;
     setFormValue((prev) => ({

@@ -5,6 +5,14 @@ export const GET_ALL_CATEGORIES = `/api/categories`;
 export const GET_ALL_VIDEOS = `/api/videos`;
 export const GET_VIDEO = `/api/video/`;
 
+export const GET_LIKED_VIDEO = `/api/user/likes`;
+export const POST_LIKED_VIDEO = `/api/user/likes`;
+export const DELETE_LIKED_VIDEO = `/api/user/likes/`;
+
+export const GET_WATCHLATER = `/api/user/watchlater`;
+export const POST_WATCHLATER = `/api/user/watchlater`;
+export const DELETE_WATCHLATER = `/api/user/watchlater/`;
+
 export const GET_HISTORY = `/api/user/history`;
 export const POST_HISTORY = `/api/user/history`;
 export const DELETE_FROM_HISTORY = `/api/user/history/`;
@@ -20,6 +28,9 @@ export const videoFeatures = {
   SET_CATEGORY_LIST: "SET_CATEGORY_LIST",
   SORT_BY_CATEGORY: "SORT_BY_CATEGORY",
   CLEAR_ALL: "CLEAR_ALL",
+  SET_WATCHLATER_LIST: "SET_WATCHLATER_LIST",
+  SET_LIKEVIDEOS_LIST: "SET_LIKEVIDEOS_LIST",
+  SET_ISLOADING: "SET_ISLOADING",
 };
 
 export const historyFeatures = {
