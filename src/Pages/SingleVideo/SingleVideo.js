@@ -1,25 +1,28 @@
 import { useEffect, useState, useMemo } from "react";
-import axios from "axios";
 import { useParams } from "react-router";
 import { GET_VIDEO } from "../../Constant/constant";
 import { FaThumbsUp, FaFolderPlus, FaClock } from "react-icons/fa";
-import moment from "moment";
-import "./SingleVideo.css";
-import Loader from "../../Components/Loader/Loader";
-import Error from "../../Components/Error/Error";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import { deleteFromLikedVideos, addToLikedVideos } from "../../Utils/likes";
 import {
   addToWatchLaterList,
   deleteFromWatchLaterList,
 } from "../../Utils/watchlater";
-import { deleteFromLikedVideos, addToLikedVideos } from "../../Utils/likes";
+import "./SingleVideo.css";
+import axios from "axios";
+import moment from "moment";
+import Loader from "../../Components/Loader/Loader";
+import Error from "../../Components/Error/Error";
+import Modal from "../../Components/UI/Modal/Modal";
+import AddPlaylistModal from "../../Components/AddPlaylistModal/AddPlaylistModal";
 
 const SingleVideo = () => {
   const [videoData, setVideoData] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
+  const [playlistModal, setplaylistModal] = useState(false);
   const { videoId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -85,6 +88,15 @@ const SingleVideo = () => {
     }
   };
 
+  const openPlaylistModal = () => {
+    if (!isAuthenticated) {
+      navigate("/login", { replace: true, state: { from: location } });
+      return;
+    }
+    setplaylistModal(true);
+  };
+  const ClosePlaylistModal = () => setplaylistModal(false);
+
   useEffect(() => {
     getVideo();
     // eslint-disable-next-line
@@ -126,7 +138,7 @@ const SingleVideo = () => {
                             <FaThumbsUp />
                             Like
                           </button>
-                          <button>
+                          <button onClick={openPlaylistModal}>
                             <FaFolderPlus />
                             Playlist
                           </button>
@@ -153,6 +165,9 @@ const SingleVideo = () => {
                       {videoData.description}
                     </div>
                   </div>
+                  <Modal isOpen={playlistModal} onClose={ClosePlaylistModal}>
+                    <AddPlaylistModal currentVideo={videoData} />
+                  </Modal>
                 </>
               )}
             </>

@@ -1,12 +1,12 @@
 import React from "react";
-import "./HistoryCard.css";
+import "./HorizontalCard.css";
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import useHistoryContext from "../../Hooks/useHistoryContext";
 import { addToHistoryList, deleteFromHistoryList } from "../../Utils/history";
 
-const HistoryCard = ({ videoInfo }) => {
+const HorizontalCard = ({ videoInfo, onDelete }) => {
   const { _id, title, creator, creatorImg, views, thumbnail, description } =
     videoInfo;
 
@@ -28,30 +28,28 @@ const HistoryCard = ({ videoInfo }) => {
     addToHistoryList(dispatchHistory, token, videoInfo);
   };
 
-  const deleteCard = (event) => {
-    event.stopPropagation();
-    deleteFromHistoryList(dispatchHistory, token, _id);
-  };
-
   return (
-    <article className="history-card-section" onClick={ViewHistoryCard}>
-      <img src={thumbnail} alt={title} className="history-card-img" />
-      <div className="history-card-info">
-        <span className="history-card-title">
+    <article className="horizontal-card-section" onClick={ViewHistoryCard}>
+      <img src={thumbnail} alt={title} className="horizontal-card-img" />
+      <div className="horizontal-card-info">
+        <span className="horizontal-card-title">
           <h2>{title}</h2>
-          <FaTrashAlt className="history-card-deleteBtn" onClick={deleteCard} />
+          <FaTrashAlt
+            className="horizontal-card-deleteBtn"
+            onClick={onDelete}
+          />
         </span>
-        <div className="history-card-creatorInfo">
+        <div className="horizontal-card-creatorInfo">
           <h3>
             <img src={creatorImg} alt={creator} className="avatar avatar-sm" />{" "}
             {creator}
           </h3>
           <h3>{views}</h3>
         </div>
-        <p className="history-card-description">{description}</p>
+        <p className="horizontal-card-description">{description}</p>
       </div>
     </article>
   );
 };
 
-export default HistoryCard;
+export default HorizontalCard;

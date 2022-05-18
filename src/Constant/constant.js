@@ -18,6 +18,13 @@ export const POST_HISTORY = `/api/user/history`;
 export const DELETE_FROM_HISTORY = `/api/user/history/`;
 export const DELETE_ALL_HISTORY = `/api/user/history/all`;
 
+export const GET_PLAYLIST = `/api/user/playlists`;
+export const CREATE_PLAYLIST = `/api/user/playlists`;
+export const DELETE_PLAYLIST = `/api/user/playlists/`;
+export const GET_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
+export const POST_TO_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
+export const DELETE_FROM_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
+
 export const authFeatures = {
   SET_AUTH: "SET_AUTH",
   CLEAR_AUTH: "CLEAR_AUTH",
@@ -30,6 +37,8 @@ export const videoFeatures = {
   CLEAR_ALL: "CLEAR_ALL",
   SET_WATCHLATER_LIST: "SET_WATCHLATER_LIST",
   SET_LIKEVIDEOS_LIST: "SET_LIKEVIDEOS_LIST",
+  SET_PLAYLIST: "SET_PLAYLIST",
+  UPDATE_PLAYLIST: "UPDATE_PLAYLIST",
   SET_ISLOADING: "SET_ISLOADING",
 };
 
