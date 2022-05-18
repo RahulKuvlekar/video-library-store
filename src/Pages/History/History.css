@@ -1,7 +1,8 @@
 .history-section {
-  padding: 0 1.5rem;
+  padding: 1.5rem;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
 }
 .history-section-videolisting {
   display: flex;

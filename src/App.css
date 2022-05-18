@@ -114,4 +114,24 @@ input[type="range"] {
   padding: 1.5rem;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
+}
+
+.not-available {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--primary-color);
+}
+.not-available h1 {
+  color: var(--primary-color);
+}
+.not-available .btn-outline-primary {
+  background-color: transparent;
+}
+.not-available .btn-outline-primary:hover {
+  border: 1px solid var(--primary-hover);
+  color: var(--primary-hover);
 }
