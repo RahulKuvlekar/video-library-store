@@ -1,0 +1,30 @@
+.PlaylistContainer-card {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-self: center;
+  width: 350px;
+  cursor: pointer;
+}
+.PlaylistContainer-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.PlaylistContainer-overlay .delete-icon,
+.PlaylistContainer-overlay h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+.PlaylistContainer-overlay .delete-icon:hover,
+.PlaylistContainer-overlay h1:hover {
+  color: var(--primary-hover);
+}
