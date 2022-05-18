@@ -12,6 +12,8 @@ import SingleVideo from "./Pages/SingleVideo/SingleVideo";
 import History from "./Pages/History/History";
 import WatchLater from "./Pages/WatchLater/WatchLater";
 import Likes from "./Pages/Likes/Likes";
+import Playlist from "./Pages/Playlist/Playlist";
+import ViewPlaylist from "./Pages/ViewPlaylist/ViewPlaylist";
 
 function App() {
   const { pathname } = useLocation();
@@ -44,6 +46,22 @@ function App() {
           element={
             <PrivateRoute>
               <Likes />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <PrivateRoute>
+              <Playlist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist/:playlistID"
+          element={
+            <PrivateRoute>
+              <ViewPlaylist />
             </PrivateRoute>
           }
         />
