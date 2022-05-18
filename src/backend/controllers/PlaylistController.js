@@ -89,8 +89,14 @@ export const getVideosFromPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const playlistId = request.params.playlistId;
-    const playlist = user.playlists.find((item) => item._id !== playlistId);
-    return new Response(200, {}, { playlist });
+    const playlist = user.playlists.find((item) => item._id === playlistId);
+    if (playlist) return new Response(200, {}, { playlist });
+    else
+      return new Response(
+        404,
+        {},
+        { errors: ["This Playlist does not Exist. Not Found error."] }
+      );
   }
   return new Response(
     404,
