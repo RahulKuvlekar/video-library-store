@@ -5,7 +5,7 @@ import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
 import { useParams } from "react-router";
 import { GET_SPECIFIC_PLAYLIST } from "../../Constant/constant";
 import { deletePlaylist, deletefromPlaylist } from "../../Utils/playlist";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HorizontalCard from "../../Components/HorizontalCard/HorizontalCard";
 import axios from "axios";
 import Loader from "../../Components/Loader/Loader";
@@ -64,7 +64,7 @@ const ViewPlaylist = () => {
     getSpecificPlaylist(token, playlistID);
     // eslint-disable-next-line
   }, [playlist]);
-  console.log(playlistData);
+
   return (
     <div className="view-playlist">
       {(() => {
@@ -89,6 +89,14 @@ const ViewPlaylist = () => {
                 </button>
               )}
             </div>
+            {playlistData?.videos?.length === 0 && (
+              <div className="not-available">
+                <h1>There are No videos in this playlist. Please Add 👻</h1>
+                <Link to="/explore" className="btn btn-outline-primary">
+                  Let's Explore
+                </Link>
+              </div>
+            )}
             <div className="view-playlist-videolisting">
               {playlistData?.videos?.length > 0 &&
                 playlistData?.videos?.map((video) => (

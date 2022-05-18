@@ -6,6 +6,7 @@ import useHistoryContext from "../../Hooks/useHistoryContext";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import { deleteAllHistoryList } from "../../Utils/history";
 import { deleteFromHistoryList } from "../../Utils/history";
+import { Link } from "react-router-dom";
 
 const History = () => {
   const {
@@ -25,13 +26,23 @@ const History = () => {
 
   return (
     <div className="history-section">
+      {historyList.length === 0 && (
+        <div className="not-available">
+          <h1>No History is available </h1>
+          <Link to="/explore" className="btn btn-outline-primary">
+            Let's Explore
+          </Link>
+        </div>
+      )}
       <div className="page-title page-title-space-btw">
-        <h2>History ({historyList.length})</h2>
         {historyList.length !== 0 && (
-          <button className="btn btn-primary" onClick={clearAllHistory}>
-            <FaTrashAlt />
-            &nbsp; Clear All
-          </button>
+          <>
+            <h2>History ({historyList.length})</h2>
+            <button className="btn btn-primary" onClick={clearAllHistory}>
+              <FaTrashAlt />
+              &nbsp; Clear All
+            </button>
+          </>
         )}
       </div>
       <div className="history-section-videolisting">
