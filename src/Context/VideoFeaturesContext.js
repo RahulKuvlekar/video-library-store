@@ -3,11 +3,13 @@ import { videoFeaturesReducer } from "../Reducer/videoFeaturesReducer";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import { getWatchLaterList } from "../Utils/watchlater";
 import { getLikedVideos } from "../Utils/likes";
+import { getAllPlaylist } from "../Utils/playlist";
 
 const VideoFeaturesContext = createContext({
   videoFeaturesState: {
     watchLaterList: Array,
     likedVideosList: Array,
+    playlist: Array,
     isLoading: Boolean,
   },
   dispatchVideoFeatures: Function,
@@ -17,6 +19,7 @@ const VideoFeaturesProvider = ({ children }) => {
   const INITIAL_STATE = {
     watchLaterList: [],
     likedVideosList: [],
+    playlist: [],
     isLoading: false,
   };
 
@@ -28,11 +31,12 @@ const VideoFeaturesProvider = ({ children }) => {
     videoFeaturesReducer,
     INITIAL_STATE
   );
-
+  console.log(videoFeaturesState.playlist);
   useEffect(() => {
     if (isAuthenticated) {
       getWatchLaterList(dispatchVideoFeatures, token);
       getLikedVideos(dispatchVideoFeatures, token);
+      getAllPlaylist(dispatchVideoFeatures, token);
     }
   }, [isAuthenticated, token]);
 
