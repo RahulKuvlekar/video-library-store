@@ -1,0 +1,11 @@
+.view-playlist {
+  padding: 0 1.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+.view-playlist-videolisting {
+  display: flex;
+  flex-flow: column;
+  row-gap: 1.5rem;
+}
