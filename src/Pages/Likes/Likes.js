@@ -17,7 +17,7 @@ const Likes = () => {
           </Link>
         </div>
       )}
-      {likedVideosList.length === 0 && (
+      {likedVideosList.length > 0 && (
         <div className="page-title page-title-space-btw">
           <h2>Liked Videos ({likedVideosList.length})</h2>
         </div>
