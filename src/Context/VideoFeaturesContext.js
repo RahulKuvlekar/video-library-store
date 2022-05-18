@@ -31,7 +31,7 @@ const VideoFeaturesProvider = ({ children }) => {
     videoFeaturesReducer,
     INITIAL_STATE
   );
-  console.log(videoFeaturesState.playlist);
+
   useEffect(() => {
     if (isAuthenticated) {
       getWatchLaterList(dispatchVideoFeatures, token);
