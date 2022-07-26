@@ -3,7 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import "./Auth.css";
-import { GET_LOGIN, authFeatures } from "../../Constant/constant";
+import {
+  GET_LOGIN,
+  authFeatures,
+  ADD_TOAST,
+  SUCCESS,
+} from "../../Constant/constant";
+import { useToastContext } from "../../Hooks/useToastContext";
+import { createToast } from "../../Utils/toast";
 
 const Login = () => {
   const INITIAL_VALUE = {
@@ -19,6 +26,7 @@ const Login = () => {
   const { dispatchAuth } = useAuthContext();
   const location = useLocation();
   const navigate = useNavigate();
+  const { dispatchToast } = useToastContext();
 
   const FROM = location?.state?.from?.pathname || "/";
 
@@ -65,8 +73,8 @@ const Login = () => {
   const setDummyCredentials = () => {
     resetHandler();
     setFormValue({
-      email: "adarshbalika@gmail.com",
-      password: "adarshBalika123",
+      email: "guestuser@gmail.com",
+      password: "guestuser123",
     });
   };
 
@@ -90,6 +98,14 @@ const Login = () => {
         dispatchAuth({
           type: SET_AUTH,
           payload: payload,
+        });
+
+        dispatchToast({
+          type: ADD_TOAST,
+          payload: createToast(
+            SUCCESS,
+            `${userInfo.firstName} ${userInfo.lastName} login successfully 🎉`
+          ),
         });
 
         localStorage.setItem("isAuth", true);

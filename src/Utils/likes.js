@@ -1,10 +1,13 @@
 import axios from "axios";
+import { DANGER, INFO } from "../Constant/constant";
 import {
   GET_LIKED_VIDEO,
   POST_LIKED_VIDEO,
   DELETE_LIKED_VIDEO,
   videoFeatures,
+  ADD_TOAST,
 } from "../Constant/constant";
+import { createToast } from "./toast";
 
 const { SET_LIKEVIDEOS_LIST, SET_ISLOADING } = videoFeatures;
 
@@ -40,7 +43,8 @@ export const getLikedVideos = async (dispatchLikedVideo, encodedToken) => {
 export const addToLikedVideos = async (
   dispatchLikedVideo,
   encodedToken,
-  videoInfo
+  videoInfo,
+  dispatchToast
 ) => {
   try {
     dispatchLikedVideo({
@@ -65,9 +69,17 @@ export const addToLikedVideos = async (
         type: SET_LIKEVIDEOS_LIST,
         payload: likes,
       });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "You Liked the video"),
+      });
     }
   } catch (error) {
-    console.log(error.message);
+    dispatchToast({
+      type: ADD_TOAST,
+      payload: createToast(DANGER, error.message),
+    });
   } finally {
     dispatchLikedVideo({
       type: SET_ISLOADING,
@@ -79,7 +91,8 @@ export const addToLikedVideos = async (
 export const deleteFromLikedVideos = async (
   dispatchLikedVideo,
   encodedToken,
-  videoID
+  videoID,
+  dispatchToast
 ) => {
   try {
     dispatchLikedVideo({
@@ -101,9 +114,17 @@ export const deleteFromLikedVideos = async (
         type: SET_LIKEVIDEOS_LIST,
         payload: likes,
       });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "You Unliked the video"),
+      });
     }
   } catch (error) {
-    console.log(error.message);
+    dispatchToast({
+      type: ADD_TOAST,
+      payload: createToast(DANGER, error.message),
+    });
   } finally {
     dispatchLikedVideo({
       type: SET_ISLOADING,

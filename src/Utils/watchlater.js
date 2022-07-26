@@ -4,7 +4,10 @@ import {
   POST_WATCHLATER,
   DELETE_WATCHLATER,
   videoFeatures,
+  ADD_TOAST,
+  INFO,
 } from "../Constant/constant";
+import { createToast } from "./toast";
 
 const { SET_WATCHLATER_LIST, SET_ISLOADING } = videoFeatures;
 
@@ -40,7 +43,8 @@ export const getWatchLaterList = async (dispatchWatchLater, encodedToken) => {
 export const addToWatchLaterList = async (
   dispatchWatchLater,
   encodedToken,
-  videoInfo
+  videoInfo,
+  dispatchToast
 ) => {
   try {
     dispatchWatchLater({
@@ -65,6 +69,11 @@ export const addToWatchLaterList = async (
         type: SET_WATCHLATER_LIST,
         payload: watchlater,
       });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "You added video to Watchlist"),
+      });
     }
   } catch (error) {
     console.log(error.message);
@@ -79,7 +88,8 @@ export const addToWatchLaterList = async (
 export const deleteFromWatchLaterList = async (
   dispatchWatchLater,
   encodedToken,
-  videoID
+  videoID,
+  dispatchToast
 ) => {
   try {
     dispatchWatchLater({
@@ -100,6 +110,11 @@ export const deleteFromWatchLaterList = async (
       dispatchWatchLater({
         type: SET_WATCHLATER_LIST,
         payload: watchlater,
+      });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "You removed video from Watchlist"),
       });
     }
   } catch (error) {

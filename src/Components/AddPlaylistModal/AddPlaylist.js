@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "../../Hooks/useAuthContext";
+import { useToastContext } from "../../Hooks/useToastContext";
 import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
 import { createPlaylist } from "../../Utils/playlist";
 import "./AddPlaylist.css";
@@ -13,10 +14,12 @@ const AddPlaylist = () => {
 
   const { dispatchVideoFeatures } = useVideoFeaturesContext();
 
+  const { dispatchToast } = useToastContext();
+
   const AddToPlaylist = (event) => {
     event.preventDefault();
     if (playlistInput === "") return;
-    createPlaylist(dispatchVideoFeatures, token, playlistInput);
+    createPlaylist(dispatchVideoFeatures, token, playlistInput, dispatchToast);
     setPlaylistInput("");
   };
   return (

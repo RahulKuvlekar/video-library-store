@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { GET_SIGNUP } from "../../Constant/constant";
+import { ADD_TOAST, GET_SIGNUP, INFO } from "../../Constant/constant";
 import axios from "axios";
 import "./Auth.css";
+import { useToastContext } from "../../Hooks/useToastContext";
+import { createToast } from "../../Utils/toast";
 
 const Signup = () => {
   const INITIAL_VAL = {
@@ -12,6 +14,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   };
+  const { dispatchToast } = useToastContext();
   const [formValue, setFormValue] = useState(INITIAL_VAL);
   const [formError, setFormError] = useState(INITIAL_VAL);
   const [isSubmit, setIsSubmit] = useState(false);
@@ -76,13 +79,16 @@ const Signup = () => {
   const SignupService = async (body) => {
     try {
       const response = await axios.post(GET_SIGNUP, body);
-      const { data, status } = await response;
+      const { status } = await response;
 
       if (status === 201) {
-        const { createdUser, encodedToken } = data;
-
-        console.log("SignUp User => ", createdUser);
-        console.log("SignUp encodedToken => ", encodedToken);
+        dispatchToast({
+          type: ADD_TOAST,
+          payload: createToast(
+            INFO,
+            "New Account has been created Succesfully 🎉"
+          ),
+        });
         navigate("/login", {
           replace: true,
         });

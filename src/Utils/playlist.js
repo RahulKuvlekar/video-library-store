@@ -1,4 +1,5 @@
 import axios from "axios";
+import { INFO, SUCCESS } from "../Constant/constant";
 import {
   GET_PLAYLIST,
   CREATE_PLAYLIST,
@@ -6,7 +7,9 @@ import {
   POST_TO_SPECIFIC_PLAYLIST,
   DELETE_FROM_SPECIFIC_PLAYLIST,
   videoFeatures,
+  ADD_TOAST,
 } from "../Constant/constant";
+import { createToast } from "./toast";
 
 const { SET_PLAYLIST, UPDATE_PLAYLIST, SET_ISLOADING } = videoFeatures;
 
@@ -39,7 +42,12 @@ export const getAllPlaylist = async (dispatchPlaylist, encodedToken) => {
   }
 };
 
-export const createPlaylist = async (dispatchPlaylist, encodedToken, title) => {
+export const createPlaylist = async (
+  dispatchPlaylist,
+  encodedToken,
+  title,
+  dispatchToast
+) => {
   try {
     dispatchPlaylist({
       type: SET_ISLOADING,
@@ -63,6 +71,11 @@ export const createPlaylist = async (dispatchPlaylist, encodedToken, title) => {
         type: SET_PLAYLIST,
         payload: playlists,
       });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(SUCCESS, `${title} Playlist created !!!`),
+      });
     }
   } catch (error) {
     console.log(error.message);
@@ -77,7 +90,8 @@ export const createPlaylist = async (dispatchPlaylist, encodedToken, title) => {
 export const deletePlaylist = async (
   dispatchPlaylist,
   encodedToken,
-  playlistID
+  playlistID,
+  dispatchToast
 ) => {
   try {
     dispatchPlaylist({
@@ -99,6 +113,11 @@ export const deletePlaylist = async (
         type: SET_PLAYLIST,
         payload: playlists,
       });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, `Playlist deleted !!!`),
+      });
     }
   } catch (error) {
     console.log(error.message);
@@ -113,8 +132,9 @@ export const deletePlaylist = async (
 export const addtoPlaylist = async (
   dispatchPlaylist,
   encodedToken,
-  playlistID,
-  video
+  playlist,
+  video,
+  dispatchToast
 ) => {
   try {
     dispatchPlaylist({
@@ -122,7 +142,7 @@ export const addtoPlaylist = async (
       payload: true,
     });
     const { data, status } = await axios.post(
-      `${POST_TO_SPECIFIC_PLAYLIST}${playlistID}`,
+      `${POST_TO_SPECIFIC_PLAYLIST}${playlist._id}`,
       {
         video: video,
       },
@@ -137,6 +157,13 @@ export const addtoPlaylist = async (
       dispatchPlaylist({
         type: UPDATE_PLAYLIST,
         payload: playlist,
+      });
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(
+          INFO,
+          `Video added to "${playlist?.title}" playlist`
+        ),
       });
     }
   } catch (error) {
@@ -153,7 +180,8 @@ export const deletefromPlaylist = async (
   dispatchPlaylist,
   encodedToken,
   playlistID,
-  videoID
+  videoID,
+  dispatchToast
 ) => {
   try {
     dispatchPlaylist({
@@ -174,6 +202,14 @@ export const deletefromPlaylist = async (
       dispatchPlaylist({
         type: UPDATE_PLAYLIST,
         payload: playlist,
+      });
+
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(
+          INFO,
+          `Video removed from "${playlist?.title}" playlist`
+        ),
       });
     }
   } catch (error) {

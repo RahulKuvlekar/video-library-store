@@ -4,21 +4,29 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { menus } from "./menus";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuthContext } from "../../Hooks/useAuthContext";
-import { authFeatures } from "../../Constant/constant";
+import { ADD_TOAST, authFeatures, SUCCESS } from "../../Constant/constant";
+import { useToastContext } from "../../Hooks/useToastContext";
+import { createToast } from "../../Utils/toast";
 
 const Sidebar = () => {
   const {
-    authState: { isAuthenticated },
+    authState: { isAuthenticated, userInfo },
     dispatchAuth,
   } = useAuthContext();
+  const { dispatchToast } = useToastContext();
   const navigate = useNavigate();
   const { CLEAR_AUTH } = authFeatures;
 
   const LogoutService = () => {
+    const username = userInfo.firstName + " " + userInfo.lastName;
     dispatchAuth({
       type: CLEAR_AUTH,
     });
 
+    dispatchToast({
+      type: ADD_TOAST,
+      payload: createToast(SUCCESS, `${username} Logout Successfully 🎉`),
+    });
     localStorage.removeItem("isAuth");
     localStorage.removeItem("token");
     localStorage.removeItem("userInfo");
