@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useAuthContext } from "../../Hooks/useAuthContext";
 import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
 import { addtoPlaylist, deletefromPlaylist } from "../../Utils/playlist";
+import { useToastContext } from "../../Hooks/useToastContext";
 
 const PlaylistCheckbox = ({ currentPlaylist, currentVideo }) => {
   const { _id, title } = currentPlaylist;
@@ -12,6 +13,8 @@ const PlaylistCheckbox = ({ currentPlaylist, currentVideo }) => {
     videoFeaturesState: { playlist },
     dispatchVideoFeatures,
   } = useVideoFeaturesContext();
+
+  const { dispatchToast } = useToastContext();
 
   const isAlreadyPresent = useMemo(
     () =>
@@ -26,15 +29,17 @@ const PlaylistCheckbox = ({ currentPlaylist, currentVideo }) => {
       addtoPlaylist(
         dispatchVideoFeatures,
         token,
-        currentPlaylist?._id,
-        currentVideo
+        currentPlaylist,
+        currentVideo,
+        dispatchToast
       );
     } else if (isChecked === false) {
       deletefromPlaylist(
         dispatchVideoFeatures,
         token,
-        currentPlaylist?._id,
-        currentVideo?._id
+        currentPlaylist._id,
+        currentVideo._id,
+        dispatchToast
       );
     }
   };

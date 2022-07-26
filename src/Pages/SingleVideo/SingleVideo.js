@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router";
 import { GET_VIDEO } from "../../Constant/constant";
 import { FaThumbsUp, FaFolderPlus, FaClock } from "react-icons/fa";
@@ -17,6 +17,7 @@ import Loader from "../../Components/Loader/Loader";
 import Error from "../../Components/Error/Error";
 import Modal from "../../Components/UI/Modal/Modal";
 import AddPlaylistModal from "../../Components/AddPlaylistModal/AddPlaylistModal";
+import { useToastContext } from "../../Hooks/useToastContext";
 
 const SingleVideo = () => {
   const [videoData, setVideoData] = useState();
@@ -27,6 +28,7 @@ const SingleVideo = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const { dispatchToast } = useToastContext();
   const {
     authState: { token, isAuthenticated },
   } = useAuthContext();
@@ -51,9 +53,19 @@ const SingleVideo = () => {
     }
 
     if (IsAlreadyWatch) {
-      deleteFromWatchLaterList(dispatchVideoFeatures, token, videoData._id);
+      deleteFromWatchLaterList(
+        dispatchVideoFeatures,
+        token,
+        videoData._id,
+        dispatchToast
+      );
     } else {
-      addToWatchLaterList(dispatchVideoFeatures, token, videoData);
+      addToWatchLaterList(
+        dispatchVideoFeatures,
+        token,
+        videoData,
+        dispatchToast
+      );
     }
   };
 
@@ -64,9 +76,14 @@ const SingleVideo = () => {
     }
 
     if (IsAlreadyLiked) {
-      deleteFromLikedVideos(dispatchVideoFeatures, token, videoData._id);
+      deleteFromLikedVideos(
+        dispatchVideoFeatures,
+        token,
+        videoData._id,
+        dispatchToast
+      );
     } else {
-      addToLikedVideos(dispatchVideoFeatures, token, videoData);
+      addToLikedVideos(dispatchVideoFeatures, token, videoData, dispatchToast);
     }
   };
 
@@ -108,9 +125,9 @@ const SingleVideo = () => {
         else if (error) return <Error msg={error} />;
         else
           return (
-            <>
+            <React.Fragment>
               {videoData && (
-                <>
+                <React.Fragment>
                   <iframe
                     className="video-frame"
                     src={`https://www.youtube.com/embed/${videoData._id}`}
@@ -168,9 +185,9 @@ const SingleVideo = () => {
                   <Modal isOpen={playlistModal} onClose={ClosePlaylistModal}>
                     <AddPlaylistModal currentVideo={videoData} />
                   </Modal>
-                </>
+                </React.Fragment>
               )}
-            </>
+            </React.Fragment>
           );
       })()}
     </div>

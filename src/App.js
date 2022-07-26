@@ -15,12 +15,14 @@ import Likes from "./Pages/Likes/Likes";
 import Playlist from "./Pages/Playlist/Playlist";
 import ViewPlaylist from "./Pages/ViewPlaylist/ViewPlaylist";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
+import Toast from "./Components/UI/Toast/Toast";
 
 function App() {
   const { pathname } = useLocation();
 
   return (
     <div className="App">
+      <Toast position={"top-left"} autoDeleteInterval={3000} />
       <NavigationBar />
       {!(
         pathname === "/" ||

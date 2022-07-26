@@ -15,7 +15,7 @@ export const videos = [
     views: "2.7M",
     thumbnail: getVideoThumbnail("P16dS29eHIY"),
     creatorImg:
-      "https://yt3.ggpht.com/rFBD18lZT2qeXNBkVMrqgCtRPX9ctXFRXVtrekvuPWMg2iiUzZrYmyR8PkuDgrDrbL9Vz8F8ABY=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/g083wpJ8yJ9YaYDmI-xK_xPiMtQKVssUzS9MkPasj7hp4KvAO_TXr7MHhYQzOfv0XOyhoLXIZA=s48-c-k-c0x00ffffff-no-rj",
     categoryName: "Basketball",
   },
   {
@@ -29,7 +29,7 @@ export const videos = [
     views: "5.7M",
     thumbnail: getVideoThumbnail("oChd0hdCJA0"),
     creatorImg:
-      "https://yt3.ggpht.com/kAg8q8hCHI10IOEjP7Ta_vYILJB-DNSg3fBtBoo3qkrImXDgUWyhIvyZyq2TSC3YhbGmkQ2K2A=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/ytc/AKedOLSTr4a9vgsDcCz_s50RGezXODy6S7p-5NxbZvu5=s48-c-k-c0x00ffffff-no-rj",
     categoryName: "Football",
   },
   {

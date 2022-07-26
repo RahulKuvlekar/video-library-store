@@ -25,6 +25,13 @@ export const GET_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 export const POST_TO_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 export const DELETE_FROM_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 
+export const ADD_TOAST = "ADD_TOAST";
+export const DELETE_TOAST = "DELETE_TOAST";
+export const SUCCESS = "SUCCESS";
+export const INFO = "INFO";
+export const WARNING = "WARNING";
+export const DANGER = "DANGER";
+
 export const authFeatures = {
   SET_AUTH: "SET_AUTH",
   CLEAR_AUTH: "CLEAR_AUTH",

@@ -5,7 +5,10 @@ import {
   POST_HISTORY,
   DELETE_ALL_HISTORY,
   historyFeatures,
+  ADD_TOAST,
+  INFO,
 } from "../Constant/constant";
+import { createToast } from "./toast";
 
 const { SET_HISTORY_LIST } = historyFeatures;
 
@@ -56,7 +59,8 @@ export const addToHistoryList = async (
 export const deleteFromHistoryList = async (
   dispatchHistory,
   encodedToken,
-  videoID
+  videoID,
+  dispatchToast
 ) => {
   try {
     const { status, data } = await axios.delete(
@@ -72,13 +76,21 @@ export const deleteFromHistoryList = async (
         type: SET_HISTORY_LIST,
         payload: history,
       });
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "Video removed from history"),
+      });
     }
   } catch (error) {
     console.log(error?.message);
   }
 };
 
-export const deleteAllHistoryList = async (dispatchHistory, encodedToken) => {
+export const deleteAllHistoryList = async (
+  dispatchHistory,
+  encodedToken,
+  dispatchToast
+) => {
   try {
     const { status, data } = await axios.delete(DELETE_ALL_HISTORY, {
       headers: { authorization: encodedToken },
@@ -89,6 +101,10 @@ export const deleteAllHistoryList = async (dispatchHistory, encodedToken) => {
       dispatchHistory({
         type: SET_HISTORY_LIST,
         payload: history,
+      });
+      dispatchToast({
+        type: ADD_TOAST,
+        payload: createToast(INFO, "History is been cleared"),
       });
     }
   } catch (error) {

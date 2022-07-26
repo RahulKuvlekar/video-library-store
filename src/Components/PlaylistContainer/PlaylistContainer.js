@@ -5,6 +5,7 @@ import { useAuthContext } from "../../Hooks/useAuthContext";
 import { useVideoFeaturesContext } from "../../Hooks/useVideoFeaturesContext";
 import { deletePlaylist } from "../../Utils/playlist";
 import { useNavigate } from "react-router-dom";
+import { useToastContext } from "../../Hooks/useToastContext";
 
 const PlaylistContainer = ({ playlist: { _id, title, videos } }) => {
   const DEFAULT_IMG = "/Images/bg-image.jpeg";
@@ -15,9 +16,11 @@ const PlaylistContainer = ({ playlist: { _id, title, videos } }) => {
 
   const { dispatchVideoFeatures } = useVideoFeaturesContext();
 
+  const { dispatchToast } = useToastContext();
+
   const deleteBtnHandler = (event) => {
     event.stopPropagation();
-    deletePlaylist(dispatchVideoFeatures, token, _id);
+    deletePlaylist(dispatchVideoFeatures, token, _id, dispatchToast);
   };
 
   const viewPlaylist = () => {

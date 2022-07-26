@@ -11,6 +11,7 @@ import axios from "axios";
 import Loader from "../../Components/Loader/Loader";
 import Error from "../../Components/Error/Error";
 import "./ViewPlaylist.css";
+import { useToastContext } from "../../Hooks/useToastContext";
 
 const ViewPlaylist = () => {
   const [playlistData, setPlaylistData] = useState();
@@ -28,14 +29,22 @@ const ViewPlaylist = () => {
     authState: { token },
   } = useAuthContext();
 
+  const { dispatchToast } = useToastContext();
+
   const deleteCompletePlaylist = () => {
-    deletePlaylist(dispatchVideoFeatures, token, playlistID);
+    deletePlaylist(dispatchVideoFeatures, token, playlistID, dispatchToast);
     navigate(`/playlist`);
   };
 
   const deleteVideoFromPlaylist = (event, videoID) => {
     event.stopPropagation();
-    deletefromPlaylist(dispatchVideoFeatures, token, playlistID, videoID);
+    deletefromPlaylist(
+      dispatchVideoFeatures,
+      token,
+      playlistID,
+      videoID,
+      dispatchToast
+    );
   };
 
   const getSpecificPlaylist = async (encodedToken, playlistID) => {
