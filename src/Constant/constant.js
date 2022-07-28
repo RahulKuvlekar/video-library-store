@@ -25,6 +25,11 @@ export const GET_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 export const POST_TO_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 export const DELETE_FROM_SPECIFIC_PLAYLIST = `/api/user/playlists/`;
 
+export const GET_NOTES = `/api/user/notes`;
+export const ADD_NOTES = `/api/user/add/notes/`;
+export const UPDATE_NOTES = `/api/user/update/notes/`;
+export const DELETE_FROM_NOTES = `/api/user/delete/notes/`;
+
 export const ADD_TOAST = "ADD_TOAST";
 export const DELETE_TOAST = "DELETE_TOAST";
 export const SUCCESS = "SUCCESS";
@@ -35,12 +40,18 @@ export const DANGER = "DANGER";
 export const authFeatures = {
   SET_AUTH: "SET_AUTH",
   CLEAR_AUTH: "CLEAR_AUTH",
+  SET_NOTES: "SET_NOTES",
+  CLEAR_NOTES: "CLEAR_NOTES",
+  ADD_NOTES: "ADD_NOTES",
+  UPDATE_NOTES: "UPDATE_NOTES",
+  DELETE_NOTES: "DELETE_NOTES",
 };
 
 export const videoFeatures = {
   SET_VIDEOLIST: "SET_VIDEOLIST",
   SET_CATEGORY_LIST: "SET_CATEGORY_LIST",
   SORT_BY_CATEGORY: "SORT_BY_CATEGORY",
+  SORT_BY_SEARCH: "SORT_BY_SEARCH",
   CLEAR_ALL: "CLEAR_ALL",
   SET_WATCHLATER_LIST: "SET_WATCHLATER_LIST",
   SET_LIKEVIDEOS_LIST: "SET_LIKEVIDEOS_LIST",

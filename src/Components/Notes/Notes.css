@@ -1,0 +1,78 @@
+.notes-section {
+  min-width: 400px;
+  max-width: 400px;
+  background-color: var(--bg--gray-900);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  border: 1px solid #ff56a21b;
+}
+.notes-title {
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+.notes-display {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-grow: 1;
+}
+.notes-add {
+  display: flex;
+  flex-flow: row;
+}
+.notes-section .notes-add input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: var(--bg--gray-800);
+  border: none;
+  outline: none;
+  outline: 1px solid var(--primary-color);
+}
+.notes-section .notes-add input:focus {
+  border: none;
+}
+.notes-section .notes-add input::placeholder {
+  color: var(--grey-color-medium);
+}
+.notes-section .notes-add button {
+  padding: 0.5rem 1rem;
+  color: var(--primary-color);
+  background-color: var(--bg--gray-800);
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  outline: 1px solid var(--primary-color);
+}
+.notes-section .notes-add button:hover {
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.notes-section .notes-add button:disabled {
+  opacity: 0.6;
+}
+
+.notes-text {
+  font-size: 1.2rem;
+  padding: 1rem 0.5rem;
+  background-color: var(--bg--gray-800);
+  margin: 0.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+}
+
+.notes-text .notes-actions {
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.notes-text .notes-actions i,
+.notes-text .notes-actions svg {
+  cursor: pointer;
+}

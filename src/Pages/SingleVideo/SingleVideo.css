@@ -1,8 +1,14 @@
-.singleVideo-section {
+.singleVideo-page {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1.5rem;
   position: relative;
+  display: flex;
+  flex-flow: row;
+  gap: 1.5rem;
+}
+.singleVideo-section {
+  flex-grow: 1;
 }
 
 .video-frame {
