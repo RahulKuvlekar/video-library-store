@@ -1,3 +1,20 @@
-## Video Library Backend
+# Video Library Store
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+Video Library Store is a video library for Sports built using React, HTML, CSS & Mockbee .
+
+## Features Present
+
+- Authentication
+  - Login
+  - Logout
+  - Signup
+- Video Listing
+- Filter Products by Category
+- Playlist Management
+- Likes / Dislikes
+- History
+- Watch later
+- Search by video title
+- Single Video Page
+- Notes on a video
+- Loading & Alerts

@@ -15,5 +15,43 @@ export const users = [
     password: "guestuser123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    notes: [
+      {
+        videoId: "P16dS29eHIY",
+        videoNotes: [
+          { notesId: "sadsdwqwe132-231312312", text: "The Lebron James " },
+          {
+            notesId: "sadsd234233432-231312312",
+            text: "Don't be afraid of failure. This is the way to succeed.",
+          },
+          {
+            notesId: "sadsdwttththt-231312312",
+            text: "Some times your best effort just isn't good enough.",
+          },
+          {
+            notesId: "sadsdwqwe132-24353453452",
+            text: "Strive for greatness",
+          },
+        ],
+      },
+      {
+        videoId: "oChd0hdCJA0",
+        videoNotes: [
+          { notesId: "sadsdwqwe12131312", text: "The Cristiano Ronaldo" },
+          {
+            notesId: "sadsd-fdfdgfgd3432-231312312",
+            text: "Your love makes me strong, your hate makes me unstoppable.",
+          },
+          {
+            notesId: "sadsdwttththadasd12312",
+            text: "Dedication, hard work all the time, and belief.",
+          },
+          {
+            notesId: "sdada4353453452",
+            text: "Your love makes me strong, your hate makes me unstoppable.",
+          },
+        ],
+      },
+    ],
   },
 ];

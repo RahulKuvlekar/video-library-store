@@ -10,7 +10,12 @@ import { videoReducer } from "../Reducer/videoReducer";
 const { SET_VIDEOLIST, SET_CATEGORY_LIST } = videoFeatures;
 
 const VideoContext = createContext({
-  videoState: { videoList: Array, categoryList: Array, category: String },
+  videoState: {
+    videoList: Array,
+    categoryList: Array,
+    category: String,
+    search: String,
+  },
   dispatchVideo: Function,
 });
 
@@ -19,6 +24,7 @@ const VideoProvider = ({ children }) => {
     videoList: [],
     categoryList: [],
     category: "All",
+    search: "",
   };
   const [videoState, dispatchVideo] = useReducer(videoReducer, initialValue);
 

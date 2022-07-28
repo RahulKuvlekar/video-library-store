@@ -28,3 +28,23 @@
   padding: 0 0 0.5rem 0;
   border-bottom: 2px solid var(--primary-hover);
 }
+.search-section {
+  width: 100%;
+  max-width: 600px;
+}
+.search-section .search-bar {
+  background-color: var(--bg--gray-900);
+  border: 1px solid var(--primary-color);
+}
+.search-section .search-bar .search-bar-btn i {
+  color: var(--primary-color);
+}
+.search-section .search-bar .search-bar-input {
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: var(--bg--gray-900);
+  color: var(--primary-color);
+}
+.search-section .search-bar .search-bar-input::placeholder {
+  color: var(--primary-color);
+}
