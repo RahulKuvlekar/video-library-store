@@ -5,13 +5,20 @@ import { useVideoContext } from "../../Hooks/useVideoContext";
 
 const VideoListing = () => {
   const {
-    videoState: { videoList, category },
+    videoState: { videoList, category, search },
   } = useVideoContext();
+
+  const sortBySearchVideos =
+    search.trim() === ""
+      ? videoList
+      : videoList.filter((video) =>
+          video.title.toLowerCase().includes(search.toLowerCase())
+        );
 
   const sortByCategoryVideos =
     category?.toLowerCase() === "all"
-      ? videoList
-      : videoList.filter(
+      ? sortBySearchVideos
+      : sortBySearchVideos.filter(
           (video) =>
             video?.categoryName?.toLowerCase() === category?.toLowerCase()
         );
