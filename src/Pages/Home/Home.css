@@ -34,3 +34,7 @@
   color: white;
   background-color: #2b2b31ab;
 }
+.home-overlay-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+}

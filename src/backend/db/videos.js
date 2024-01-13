@@ -15,7 +15,7 @@ export const videos = [
     views: "2.7M",
     thumbnail: getVideoThumbnail("P16dS29eHIY"),
     creatorImg:
-      "https://yt3.ggpht.com/g083wpJ8yJ9YaYDmI-xK_xPiMtQKVssUzS9MkPasj7hp4KvAO_TXr7MHhYQzOfv0XOyhoLXIZA=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/_cJUz0aSSV6TtTrw4_XaqsMVjbMkddQxxLxnN2G_PJ9NZv-9sjVXC88ILPd7kQRkO8OO7YG7=s176-c-k-c0x00ffffff-no-rj-mo",
     categoryName: "Basketball",
   },
   {
@@ -33,17 +33,17 @@ export const videos = [
     categoryName: "Football",
   },
   {
-    videoLink: getVideoLink("WXt00UP3vIU"),
-    _id: "WXt00UP3vIU",
+    videoLink: getVideoLink("zyGwb84l80I"),
+    _id: "zyGwb84l80I",
     title: "A Tribute to Mahendra Singh Dhoni,The Legend",
     description:
       "Mahendra Singh Dhoni, is a former Indian international cricketer who captained the Indian national team in limited-overs formats from 2007 to 2017 and in Test cricket from 2008 to 2014.",
     creator: "WeCan",
     timeStamp: "03/18/2022",
     views: "7M",
-    thumbnail: getVideoThumbnail("WXt00UP3vIU"),
+    thumbnail: getVideoThumbnail("zyGwb84l80I"),
     creatorImg:
-      "https://yt3.ggpht.com/ytc/AKedOLQFIThblxkX-iAnZDpSm9oAfmZPZTdNGcjTk2hPNg=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.googleusercontent.com/Fji46xtbyV7pA0dI1Oai9CCNkOVfofsYVMHhSq3xb0V2wFtCkhGTpZlwHkM_MNBqFma1TShMOQ=s176-c-k-c0x00ffffff-no-rj",
     categoryName: "Cricket",
   },
   {
@@ -71,21 +71,21 @@ export const videos = [
     views: "4.5M",
     thumbnail: getVideoThumbnail("NqmtMjPQ3yQ"),
     creatorImg:
-      "https://yt3.ggpht.com/gSMKcBcf7c6Zv12VS5jIxbvmlYbbQhGkPa7AxgDFx7FAwTeAJsNQB_9rr08mumxBVXuhtdaY=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/9jyt85wnk0tyDJu4W-7mnCHjwJqH6cjOIUNuCwk0ilgZbef1EgVz30BgmZGYfSpLkzT5-QT8Uw=s176-c-k-c0x00ffffff-no-rj-mo",
     categoryName: "Basketball",
   },
   {
-    videoLink: getVideoLink("KGEFvfmrh5A"),
-    _id: "KGEFvfmrh5A",
+    videoLink: getVideoLink("yrYpPKJYEH4"),
+    _id: "yrYpPKJYEH4",
     title: "WHEN LIFE HURTS ft. Virat Kohli | motivational video",
     description:
       "Virat Kohli is an Indian cricketer and the current captain of the India national team. A right-handed top-order batsman, Kohli is regarded as one of the best contemporary batsmen in the world. He plays for Royal Challengers Bangalore in the Indian Premier League, and has been the team's captain since 2013.",
     creator: "WeCan",
     timeStamp: "08/28/2021",
     views: "2.5M",
-    thumbnail: getVideoThumbnail("KGEFvfmrh5A"),
+    thumbnail: getVideoThumbnail("yrYpPKJYEH4"),
     creatorImg:
-      "https://yt3.ggpht.com/ytc/AKedOLQFIThblxkX-iAnZDpSm9oAfmZPZTdNGcjTk2hPNg=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.googleusercontent.com/Fji46xtbyV7pA0dI1Oai9CCNkOVfofsYVMHhSq3xb0V2wFtCkhGTpZlwHkM_MNBqFma1TShMOQ=s176-c-k-c0x00ffffff-no-rj",
     categoryName: "Cricket",
   },
   {

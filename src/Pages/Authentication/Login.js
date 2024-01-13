@@ -115,7 +115,7 @@ const Login = () => {
         navigate(FROM, { replace: true });
       }
     } catch (error) {
-      setLoginError(error.response.data.errors[0]);
+      setLoginError(error?.response?.data?.errors?.[0]);
     }
     return;
   };
